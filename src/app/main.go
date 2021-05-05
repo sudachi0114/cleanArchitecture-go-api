@@ -4,6 +4,7 @@ import (
 	"fmt"
 
 	"github.com/sudachi0114/cleanArchitecture-go-api/src/app/domain"
+	"github.com/sudachi0114/cleanArchitecture-go-api/src/app/infrastructure"
 )
 
 func main() {
@@ -11,4 +12,7 @@ func main() {
 
 	user := domain.User{ID: 1, FirstName: "suzuki", LastName: "taro"}
 	fmt.Println(user)
+
+	conn := infrastructure.NewSqlHandler()
+	fmt.Println(conn)
 }

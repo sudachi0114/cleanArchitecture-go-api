@@ -6,16 +6,16 @@ import (
 	_ "github.com/go-sql-driver/mysql"
 )
 
-type sqlHandler struct {
+type SqlHandler struct {
 	Conn *sql.DB
 }
 
-func NewSqlHandler() *sqlHandler {
+func NewSqlHandler() *SqlHandler {
 	conn, err := sql.Open("mysql", "root:@tcp(127.0.0.1:3306)/sample")
 	if err != nil {
 		panic(err.Error)
 	}
-	sqlHandler := new(sqlHandler)
+	sqlHandler := new(SqlHandler)
 	sqlHandler.Conn = conn
 	return sqlHandler
 }

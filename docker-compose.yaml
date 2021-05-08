@@ -8,6 +8,9 @@ services:
       MYSQL_DATABASE: sample_db
       MYSQL_USER: docker
       MYSQL_PASSWORD: passw0rd
-      BIND-ADDRESS: 0.0.0.0
     ports:
       - 3306:3306
+    volumes:
+      - ./docker/mysql/data:/var/lib/mysql
+      - ./docker/mysql/my.cnf:/etc/mysql/conf.d/my.cnf
+      - ./docker/mysql/initdb.d:/docker-entrypoint-initdb.d

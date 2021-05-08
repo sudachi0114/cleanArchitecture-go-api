@@ -3,3 +3,6 @@
 
 # binary
 main
+
+# db
+docker/mysql/data

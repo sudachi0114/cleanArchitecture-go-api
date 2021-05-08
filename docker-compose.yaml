@@ -1,10 +1,13 @@
 version: '3'
 
 services:
-    db:
-        image: mysql:5.7
-        environment:
-            MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
-            BIND-ADDRESS: 0.0.0.0
-        ports:
-            - 3306:3306
+  db:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: toor
+      MYSQL_DATABASE: sample_db
+      MYSQL_USER: docker
+      MYSQL_PASSWORD: passw0rd
+      BIND-ADDRESS: 0.0.0.0
+    ports:
+      - 3306:3306

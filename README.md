@@ -11,5 +11,25 @@ go 言語で Clean Architecture な API Server を作って、
 $ go run src/app/main.go
 ```
 
+or
+
+```
+$ make
+```
+
+* docker container
+
+```shell
+$ make compose/up
+```
+
+## endpoint
+
+* `/users`
+
+```shell
+$ curl -i -H "Accept: application/json" -H "Content-type: application/json" -X POST -d '{"FirstName": "suzuki", "LastName": "taro"}' localhost:8080/users
+```
+
 ## Links
 * [Clean ArchitectureでAPI Serverを構築してみる](https://qiita.com/hirotakan/items/698c1f5773a3cca6193e)

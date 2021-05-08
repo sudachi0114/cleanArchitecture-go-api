@@ -17,12 +17,6 @@ func main() {
 	conn := infrastructure.NewSqlHandler()
 	fmt.Println(conn)
 
-	// user_repo := database.UserRepository{}
-	// id, err := user_repo.Store(taro) <- contoller 層を経由して呼び出していないため、実装に結びついていない。なので、実際に走る処理は nil になる。
-	// if err != nil {
-	// 	panic(err.Error)
-	// }
-
-	uc := controllers.NewUserController(infrastructure.NewSqlHandler()) // <- こっちは controller で infrastructure.SqlHandler と database.SqlHandler が結びつくので nil にならない
+	uc := controllers.NewUserController(infrastructure.NewSqlHandler())
 	uc.Create(taro)
 }

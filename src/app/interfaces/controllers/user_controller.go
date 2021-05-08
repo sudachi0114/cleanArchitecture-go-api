@@ -20,9 +20,13 @@ func NewUserController(sqlHandler database.SqlHandler) *UserController {
 	}
 }
 
-func (controller *UserController) Create(u domain.User) { // 本当はダメ..
+func (controller *UserController) Create(c Context) {
+	u := domain.User{}
+	c.Bind(&u)
 	err := controller.Interactor.Add(u)
 	if err != nil {
-		panic(err)
+		c.JSON(500, err)
+		return
 	}
+	c.JSON(201, u)
 }

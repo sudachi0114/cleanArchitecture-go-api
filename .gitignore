@@ -3,6 +3,10 @@
 
 # binary
 main
+/bin
 
 # db
 docker/mysql/data
+
+# directory
+/tmp

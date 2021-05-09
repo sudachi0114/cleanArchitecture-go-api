@@ -5,9 +5,7 @@ WORKDIR /app/
 COPY go.mod go.sum ./
 RUN go mod download
 
-COPY . .
-
-RUN go build src/app/main.go
-
 EXPOSE 8080
-ENTRYPOINT ["./main"]
+
+RUN go get -u github.com/cosmtrek/air
+CMD ["air", "-c", ".air.toml"]

@@ -10,6 +10,10 @@ compose/up: compose/down
 compose/down:
 	docker-compose down
 
+.PHONY: compose/build
+compose/build:
+	docker-compose build
+
 .PHONY: clean
 clean: compose/down
 	rm main

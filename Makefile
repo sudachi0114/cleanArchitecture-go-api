@@ -1,3 +1,7 @@
+.PHONY: build
+build:
+	go build -o bin/main src/app/main.go
+
 .PHONY: run
 run:
 	go run src/app/main.go

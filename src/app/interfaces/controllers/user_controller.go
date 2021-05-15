@@ -1,7 +1,7 @@
 package controllers
 
 import (
-	"fmt"
+	"strconv"
 
 	"github.com/sudachi0114/cleanArchitecture-go-api/src/app/domain"
 	"github.com/sudachi0114/cleanArchitecture-go-api/src/app/interfaces/database"
@@ -39,16 +39,15 @@ func (controller *UserController) List(c Context) {
 		c.JSON(500, err)
 		return
 	}
-	c.JSON(201, users)
+	c.JSON(200, users)
 }
 
 func (controller *UserController) Get(c Context) {
-	id := c.Param("id")
-	fmt.Println(id)
-	/* user, err := controller.Interactor.GetUser()
+	id, _ := strconv.Atoi(c.Param("id"))
+	user, err := controller.Interactor.GetUser(id)
 	if err != nil {
 		c.JSON(500, err)
 		return
-	} */
-	c.Status(500)
+	}
+	c.JSON(200, user)
 }

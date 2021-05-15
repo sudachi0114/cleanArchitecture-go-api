@@ -1,6 +1,8 @@
 package controllers
 
 import (
+	"fmt"
+
 	"github.com/sudachi0114/cleanArchitecture-go-api/src/app/domain"
 	"github.com/sudachi0114/cleanArchitecture-go-api/src/app/interfaces/database"
 	"github.com/sudachi0114/cleanArchitecture-go-api/src/app/usecase"
@@ -41,6 +43,8 @@ func (controller *UserController) List(c Context) {
 }
 
 func (controller *UserController) Get(c Context) {
+	id := c.Param("id")
+	fmt.Println(id)
 	/* user, err := controller.Interactor.GetUser()
 	if err != nil {
 		c.JSON(500, err)

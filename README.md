@@ -25,10 +25,16 @@ $ make compose/up
 
 ## endpoint
 
-* `/users`
+* user の登録 : POST `/users`
 
 ```shell
 $ curl -i -H "Accept: application/json" -H "Content-type: application/json" -X POST -d '{"FirstName": "suzuki", "LastName": "taro"}' localhost:8080/users
+```
+
+* user の一覧取得 : GET `/users`
+
+```shell
+$ curl localhost:8080/users
 ```
 
 ## Links

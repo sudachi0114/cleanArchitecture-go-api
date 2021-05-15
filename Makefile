@@ -16,4 +16,4 @@ compose/build:
 
 .PHONY: clean
 clean: compose/down
-	rm main
+	rm -rf bin/ && rm main

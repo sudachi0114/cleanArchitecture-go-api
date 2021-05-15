@@ -39,3 +39,12 @@ func (controller *UserController) List(c Context) {
 	}
 	c.JSON(201, users)
 }
+
+func (controller *UserController) Get(c Context) {
+	/* user, err := controller.Interactor.GetUser()
+	if err != nil {
+		c.JSON(500, err)
+		return
+	} */
+	c.Status(500)
+}

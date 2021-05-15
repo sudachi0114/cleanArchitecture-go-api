@@ -26,8 +26,7 @@ func init() {
 		userController.List(c)
 	})
 	router.GET("/users/:id", func(c *gin.Context) {
-		// userController.Get(c)
-		c.Status(http.StatusInternalServerError)
+		userController.Get(c)
 	})
 
 	Router = router

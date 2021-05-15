@@ -10,3 +10,8 @@ func (interactor *UserInteractor) Add(u domain.User) (err error) {
 	_, err = interactor.UserRepository.Store(u)
 	return
 }
+
+func (interactor *UserInteractor) ListUsers() (users domain.Users, err error) {
+	users, err = interactor.UserRepository.List()
+	return
+}

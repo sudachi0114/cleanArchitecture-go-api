@@ -39,7 +39,7 @@ func (repo *UserRepository) List() (users domain.Users, err error) {
 			FirstName: firstName,
 			LastName:  lastName,
 		}
-		users = append(users, user)
+		users = append(users, *user.Build())
 	}
 	return
 }
@@ -60,5 +60,6 @@ func (repo *UserRepository) FindById(id int) (user domain.User, err error) {
 	user.ID = id
 	user.FirstName = firstName
 	user.LastName = lastName
+	user.Build()
 	return
 }

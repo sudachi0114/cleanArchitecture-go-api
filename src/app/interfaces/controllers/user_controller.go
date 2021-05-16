@@ -1,6 +1,8 @@
 package controllers
 
 import (
+	"strconv"
+
 	"github.com/sudachi0114/cleanArchitecture-go-api/src/app/domain"
 	"github.com/sudachi0114/cleanArchitecture-go-api/src/app/interfaces/database"
 	"github.com/sudachi0114/cleanArchitecture-go-api/src/app/usecase"
@@ -23,12 +25,12 @@ func NewUserController(sqlHandler database.SqlHandler) *UserController {
 func (controller *UserController) Create(c Context) {
 	u := domain.User{}
 	c.Bind(&u)
-	err := controller.Interactor.Add(u)
+	user, err := controller.Interactor.Add(u)
 	if err != nil {
 		c.JSON(500, err)
 		return
 	}
-	c.JSON(201, u)
+	c.JSON(201, user)
 }
 
 func (controller *UserController) List(c Context) {
@@ -37,5 +39,15 @@ func (controller *UserController) List(c Context) {
 		c.JSON(500, err)
 		return
 	}
-	c.JSON(201, users)
+	c.JSON(200, users)
+}
+
+func (controller *UserController) Get(c Context) {
+	id, _ := strconv.Atoi(c.Param("id"))
+	user, err := controller.Interactor.GetUser(id)
+	if err != nil {
+		c.JSON(500, err)
+		return
+	}
+	c.JSON(200, user)
 }

@@ -25,6 +25,9 @@ func init() {
 	router.GET("/users", func(c *gin.Context) {
 		userController.List(c)
 	})
+	router.GET("/users/:id", func(c *gin.Context) {
+		userController.Get(c)
+	})
 
 	Router = router
 }
